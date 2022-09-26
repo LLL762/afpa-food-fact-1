@@ -19,8 +19,8 @@ const SearchResultComponent = () => {
     mainElem.innerHTML = template;
   };
 
-  const refresh = ($product) => {
-    $product.then((product) => productTemplateMapper.showProduct(product));
+  const refresh = (product) => {
+    productTemplateMapper.showProduct(product);
   };
 
   return { init, getObserverHelper };

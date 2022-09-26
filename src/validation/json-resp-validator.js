@@ -1,9 +1,9 @@
 const JsonRespValidator = () => {
-  const isValid = (json) => {
+  const validate = (json) => {
     return json.status == 1 ? "" : json.status_verbose;
   };
 
-  return { isValid };
+  return { validate };
 };
 
 export { JsonRespValidator };

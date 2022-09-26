@@ -1,6 +1,6 @@
 import { ApiConfig } from "../config/api-config";
 
-const FoodService = (productJsonMapper) => {
+const FoodService = (productJsonMapper, jsonRespValidator) => {
   const getProductByCode = async (code) => {
     const url =
       ApiConfig.getBaseEndPoint() + ApiConfig.getReadEndPoint() + code;
@@ -11,7 +11,11 @@ const FoodService = (productJsonMapper) => {
       })
       .catch((err) => console.log(err));
 
-    return productJsonMapper.toProduct(jsonResp);
+    const validation = jsonRespValidator.validate(jsonResp);
+
+    return validation.length == 0
+      ? productJsonMapper.toProduct(jsonResp)
+      : validation;
   };
 
   return { getProductByCode };
