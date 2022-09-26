@@ -1,0 +1,32 @@
+:root {
+  --bg-color-primary: #e3e7f0;
+  --bg-color-secondary: #4a8ad3;
+  --bg-color-secondary-lighter: #7fa6d3;
+  --bg-color-content: white;
+
+  --text-color-primary: black;
+  --text-color-primary-lighter: grey;
+  --text-color-secondary: white;
+
+  --main-container-max-width: 1800px;
+  --main-container-min-width: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+  border: inherit;
+}
+
+svg {
+  height: 1.5em;
+}
