@@ -17,7 +17,7 @@ const SearchComponent = (foodService) => {
     show();
     searchInput = document.querySelector("header #search-input");
     form = document.querySelector("header form");
-    searchMsg = document.querySelector("header form #search-msg");
+    searchMsg = document.querySelector("header #search-msg");
     form.addEventListener("submit", (event) => onSubmit(event));
   };
 
