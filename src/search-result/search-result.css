@@ -1,7 +1,49 @@
 img {
-  height: 8em;
+  max-height: 5em;
 }
 
-#product-nutri-grade {
-  height: 5em;
+#product-img {
+  max-height: 10em;
+}
+
+#product-infos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.product-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  gap: 0 1em;
+  padding: 1rem;
+  box-shadow: 3px 3px 5px rgb(151, 151, 151);
+}
+
+.product-info > div {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+  border-radius: 1em;
+  gap: 0.5em;
+  justify-content: center;
+}
+
+.product-info > div > div {
+  flex: 0.2 0.2 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.5em;
+  padding: 0 0.5em;
+  background-color: var(--bg-color-secondary);
+  color: var(--text-color-secondary);
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
 }

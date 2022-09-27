@@ -8,6 +8,10 @@
   --text-color-primary-lighter: grey;
   --text-color-secondary: white;
 
+  --text-color-warning: rgb(219, 80, 80);
+  --text-color-ok: rgb(96, 180, 75);
+  --text-color-info: rgb(30, 28, 138);
+
   --main-container-max-width: 1800px;
   --main-container-min-width: 320px;
 }
@@ -18,23 +22,31 @@
 
 body {
   display: flex;
-  margin: 0;
+  max-width: var(--main-container-max-width);
+  min-width: var(--main-container-min-width);
+  margin: 0 auto;
 }
 
 #main-container {
-  max-width: var(--main-container-max-width);
-  min-width: var(--main-container-min-width);
-  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-color-primary);
+  width: 100%;
+}
+
+main {
+  display: none;
+  width: 100%;
 }
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2em;
 }
 
 button,
@@ -42,6 +54,7 @@ input {
   font-family: inherit;
   font-size: inherit;
   border: none;
+  background-color: inherit;
 }
 
 input:focus,
@@ -51,4 +64,8 @@ button:focus {
 
 svg {
   height: 1.5em;
+}
+
+.display-block {
+  display: block;
 }
