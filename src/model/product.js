@@ -6,7 +6,10 @@ const Product = (
   nutriGrade,
   novaGroup,
   ecoScoreGrade,
-  ingredients
+  ingredients,
+  brand,
+  servingSize,
+  packaging
 ) => {
   const getCode = () => code;
   const getName = () => name;
@@ -16,6 +19,9 @@ const Product = (
   const getNovaGroup = () => novaGroup;
   const getEcoScoreGrade = () => ecoScoreGrade;
   const getIngredients = () => ingredients;
+  const getBrand = () => brand;
+  const getServingSize = () => servingSize;
+  const getPackaging = () => packaging;
 
   return {
     getCode,
@@ -26,6 +32,9 @@ const Product = (
     getNovaGroup,
     getEcoScoreGrade,
     getIngredients,
+    getBrand,
+    getServingSize,
+    getPackaging,
   };
 };
 

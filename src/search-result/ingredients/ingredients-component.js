@@ -1,6 +1,12 @@
 const IngredientsComponent = () => {
   const template = (ingredient) => {
-    return `<div class="ingredient"> ${ingredient} </div>`;
+    return `
+    <div class="ingredient">   ${ingredient.getPercentEstimate() || "??"}  % :
+    ${ingredient.getName()} 
+    </div>
+   
+
+    `;
   };
 
   const displayIngredients = (product) => {
@@ -9,7 +15,7 @@ const IngredientsComponent = () => {
     ingredientsElem.innerHTML = "";
     console.log(ingredients);
 
-    for (let ingredient of ingredients.split(",")) {
+    for (let ingredient of ingredients) {
       const newElem = document.createElement("div");
       newElem.innerHTML = template(ingredient);
 

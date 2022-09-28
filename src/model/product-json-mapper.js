@@ -1,6 +1,6 @@
 import { Product } from "./product";
 
-const ProductJsonMapper = () => {
+const ProductJsonMapper = (ingredientJsonMapper) => {
   const toProduct = (json) => {
     return Product(
       json.code,
@@ -10,7 +10,10 @@ const ProductJsonMapper = () => {
       json.product?.nutriscore_grade,
       json.product?.nova_group,
       json.product?.ecoscore_grade,
-      json.product?.ingredients_text
+      ingredientJsonMapper.toIngredientList(json.product?.ingredients),
+      json.product?.brands,
+      json.product?.serving_size,
+      json.product?.packaging_tags
     );
   };
 
