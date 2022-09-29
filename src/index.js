@@ -5,7 +5,7 @@ import { ProductJsonMapper } from "./model/product-json-mapper.js";
 import { SearchComponent } from "./search-bar/search-bar.js";
 import { IngredientsComponent } from "./search-result/ingredients/ingredients-component.js";
 import { SearchResultComponent } from "./search-result/search-result.js";
-import css from "./style.css";
+import "./style.scss";
 import { JsonRespValidator } from "./validation/json-resp-validator.js";
 import { SearchInputValidator } from "./validation/search-input-validator.js";
 
