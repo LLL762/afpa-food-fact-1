@@ -1,8 +1,8 @@
 @import "bootstrap";
+@import "./global-var.scss";
 
 :root {
   --bg-color-primary: #e3e7f0;
-  --bg-color-secondary: #4a8ad3;
   --bg-color-secondary-lighter: #7fa6d3;
   --bg-color-content: white;
 
@@ -14,9 +14,10 @@
   --text-color-ok: rgb(96, 180, 75);
   --text-color-info: rgb(30, 28, 138);
 
-  --main-container-max-width: 1800px;
-  --main-container-min-width: 320px;
 }
+
+
+
 
 * {
   box-sizing: border-box;
@@ -24,8 +25,8 @@
 
 body {
   display: flex;
-  max-width: var(--main-container-max-width);
-  min-width: var(--main-container-min-width);
+  max-width: $main-container-max-width;
+  min-width: $main-container-min-width;
   margin: 0 auto;
 }
 
@@ -34,9 +35,8 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-color-primary);
+  background-color: $bg-color-primary;
   width: 100%;
-  min-height: 2000px;
 }
 
 main {

@@ -8,6 +8,7 @@ import { SearchResultComponent } from "./search-result/search-result.js";
 import "./style.scss";
 import { JsonRespValidator } from "./validation/json-resp-validator.js";
 import { SearchInputValidator } from "./validation/search-input-validator.js";
+import "bootstrap";
 
 const ingredientJsonMapper = IngredientJsonMapper();
 const foodService = FoodService(

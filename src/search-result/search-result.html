@@ -1,7 +1,10 @@
-<div id="product-infos" class="test">
-  <div class="product-info">
-    <img src="#" alt="" id="product-img" />
-
+<div id="product-infos">
+  <div
+    class="border border-light d-flex justify-content-center align-items-center flex-wrap gap-4"
+  >
+    <div>
+      <img src="#" alt="" id="product-img" class="d-block m-auto" />
+    </div>
     <div id="product-info-core">
       <div>
         <p>Name : <span id="product-name"></span></p>
@@ -19,20 +22,34 @@
         <p>Packaging : <span id="product-pack"></span></p>
       </div>
     </div>
-  </div>
-
-  <div class="product-info">
-    <img src="#" alt="" id="product-nutri-grade" />
-    <img src="#" alt="" id="product-nova-img" />
-    <img src="#" alt="" id="product-eco-img" />
+    <div class="d-flex justify-content-center">
+      <img src="#" alt="" id="product-nutri-grade" />
+      <img src="#" alt="" id="product-nova-img" />
+      <img src="#" alt="" id="product-eco-img" />
+    </div>
   </div>
 
   <div class="product-info"></div>
   <div class="product-info"></div>
   <img src="#" alt="" id="product-nutrition-img" />
 
-  <div id="ingredients-drop-down">
-    <button type="button" id="ingredient-show-btn">Ingredients</button>
-    <div id="ingredients" class="display-none"></div>
+  <div class="accordion">
+    <div id="ingredients-drop-down" class="accordion-item">
+      <button
+        type="button"
+        id="ingredient-show-btn bn btn-primary"
+        class="accordion-button"
+        data-bs-toggle="collapse"
+        data-bs-target="#ingredients"
+      >
+        Ingredients
+      </button>
+
+      <div id="ingredients" class="container accordion-collapse collapse">
+        <div
+          class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 accordion-body"
+        ></div>
+      </div>
+    </div>
   </div>
 </div>
