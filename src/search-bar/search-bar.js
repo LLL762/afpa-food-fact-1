@@ -6,29 +6,26 @@ const SearchComponent = (foodService, searchInputValidator) => {
   const obsHelper = ObservableHelper();
   let searchInput;
   let submitBtn;
-  let form;
   let searchMsg;
 
   const show = () => {
-    const headerElem = document.querySelector("header");
-    headerElem.innerHTML = template;
+    const headerElem = $("header");
+    headerElem.html(template);
   };
 
   const init = () => {
     show();
-    searchInput = document.querySelector("header #search-input");
-    form = document.querySelector("header form");
-    searchMsg = document.querySelector("header #search-msg");
-    submitBtn = document.querySelector("header #search-submit-btn");
+    searchInput = $("header #search-input");
+    searchMsg = $("header #search-msg");
+    submitBtn = $("header #search-submit-btn");
 
     submitBtn.disabled = true;
-    form.addEventListener("submit", (event) => onSubmit(event));
-    searchInput.addEventListener("input", (event) => onKeyDownSearch(event));
+    $("header form").on("submit", (e) => onSubmit(e));
+    searchInput.on("input", (e) => onInputSearch(e));
   };
 
   const getSearchValue = () => {
-    if (!searchInput) throw new Error("");
-    return searchInput.value;
+    return searchInput?.val();
   };
 
   const onSubmit = (event) => {
@@ -52,7 +49,7 @@ const SearchComponent = (foodService, searchInputValidator) => {
     return obsHelper;
   };
 
-  const onKeyDownSearch = (event) => {
+  const onInputSearch = (event) => {
     const searchValue = event.currentTarget.value;
     const validResult = searchInputValidator.validate(searchValue, 15);
 
@@ -74,17 +71,16 @@ const SearchComponent = (foodService, searchInputValidator) => {
   const setMsg = (msg) => {
     switch (msg) {
       case "product found!":
-        searchMsg.classList.value = "ok";
+        searchMsg.removeClass("info warning").addClass("ok");
         break;
       case "Trying to fetch resource from api please wait":
-        searchMsg.classList.value = "info";
+        searchMsg.removeClass("ok warning").addClass("info");
         break;
       default:
-        searchMsg.classList.value = "warning";
+        searchMsg.removeClass("ok info").addClass("warning");
         break;
     }
-
-    searchMsg.textContent = msg;
+    searchMsg.text(msg);
   };
 
   return { init, getSearchValue, getObsHelper, setMsg };

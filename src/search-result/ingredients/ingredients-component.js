@@ -8,15 +8,19 @@ const IngredientsComponent = () => {
   const displayIngredients = (product) => {
     const ingredients = product.getIngredients();
 
+    console.log(typeof ingredients);
     ingredientsContent.innerHTML = "";
 
-    for (let ingredient of ingredients) {
-      const newElem = document.createElement("div");
+    if (typeof ingredients === "object") {
+      for (let ingredient of ingredients) {
+        const newElem = document.createElement("div");
 
-      newElem.innerHTML = eval("`" + template + "`");
+        newElem.innerHTML = eval("`" + template + "`");
 
-      ingredientsContent.appendChild(newElem.children[0]);
-      console.log(ingredientsContent);
+        ingredientsContent.appendChild(newElem.children[0]);
+      }
+    } else {
+      ingredientsContent.innerHTML = "no ingredients specified";
     }
   };
 
@@ -24,10 +28,6 @@ const IngredientsComponent = () => {
     showBtn = document.getElementById("ingredient-show-btn");
     ingredientsElem = document.getElementById("ingredients");
     ingredientsContent = document.querySelector("#ingredients > .row");
-  };
-
-  const showBtnOnClick = () => {
-    ingredientsElem.classList.toggle("display-none");
   };
 
   return { displayIngredients, init };

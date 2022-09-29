@@ -36,8 +36,6 @@ const ProductTemplateMapper = () => {
     packElement.textContent = product.getPackaging()
       ? TagFilter().filter(product.getPackaging(), TagNames.getEnTag())
       : fallBackValue;
-
-    console.log(product.getPackaging());
   };
 
   return { showProduct };
