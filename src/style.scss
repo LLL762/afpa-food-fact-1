@@ -59,6 +59,15 @@ input {
   background-color: inherit;
 }
 
+
+.btn-custom{
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .rounded;
+}
+
+
+
 input:focus,
 button:focus {
   outline: none;
