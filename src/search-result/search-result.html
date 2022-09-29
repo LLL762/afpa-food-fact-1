@@ -1,28 +1,34 @@
 <div id="product-infos">
   <div
-    class="border border-light d-flex justify-content-center align-items-center flex-wrap gap-4"
+    class="border border-light d-flex justify-content-center align-items-center flex-wrap gap-4 p-3"
   >
-    <div>
-      <img src="#" alt="" id="product-img" class="d-block m-auto" />
+    <div
+      class="d-flex flex-wrap justify-content-center align-items-center gap-4 border border-dark rounded p-3"
+    >
+      <div>
+        <img src="#" alt="" id="product-img" class="d-block m-auto" />
+      </div>
+      <div id="product-info-core">
+        <div>
+          <p>Name : <span id="product-name"></span></p>
+        </div>
+        <div>
+          <p>Code : <span id="product-code"></span></p>
+        </div>
+        <div>
+          <p>Brand : <span id="product-brand"></span></p>
+        </div>
+        <div>
+          <p>Quantity : <span id="product-qte"></span></p>
+        </div>
+        <div>
+          <p>Packaging : <span id="product-pack"></span></p>
+        </div>
+      </div>
     </div>
-    <div id="product-info-core">
-      <div>
-        <p>Name : <span id="product-name"></span></p>
-      </div>
-      <div>
-        <p>Code : <span id="product-code"></span></p>
-      </div>
-      <div>
-        <p>Brand : <span id="product-brand"></span></p>
-      </div>
-      <div>
-        <p>Quantity : <span id="product-qte"></span></p>
-      </div>
-      <div>
-        <p>Packaging : <span id="product-pack"></span></p>
-      </div>
-    </div>
-    <div class="d-flex justify-content-center">
+    <div
+      class="d-flex justify-content-center gap-4 p-2 border border-dark rounded"
+    >
       <img src="#" alt="" id="product-nutri-grade" />
       <img src="#" alt="" id="product-nova-img" />
       <img src="#" alt="" id="product-eco-img" />
@@ -33,7 +39,7 @@
   <div class="product-info"></div>
   <img src="#" alt="" id="product-nutrition-img" />
 
-  <div class="accordion">
+  <div class="accordion w-75 m-auto">
     <div id="ingredients-drop-down" class="accordion-item">
       <button
         type="button"

@@ -16,12 +16,12 @@ const foodService = FoodService(
   JsonRespValidator()
 );
 const foodServiceMock = FoodServiceMock(
-  ProductJsonMapper(),
+  ProductJsonMapper(ingredientJsonMapper),
   JsonRespValidator()
 );
 const searchInputValidator = SearchInputValidator();
 
-const searchBar = SearchComponent(foodService, searchInputValidator);
+const searchBar = SearchComponent(foodServiceMock, searchInputValidator);
 const searchResult = SearchResultComponent(IngredientsComponent());
 
 searchBar.init();
