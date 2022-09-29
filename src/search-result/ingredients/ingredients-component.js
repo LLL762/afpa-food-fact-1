@@ -1,29 +1,37 @@
-const IngredientsComponent = () => {
-  const template = (ingredient) => {
-    return `
-    <div class="ingredient">   ${ingredient.getPercentEstimate() || "??"}  % :
-    ${ingredient.getName()} 
-    </div>
-   
+import template from "./ingredient.html";
+import "./ingredients.css";
 
-    `;
-  };
+const IngredientsComponent = () => {
+  let showBtn;
+  let ingredientsElem;
 
   const displayIngredients = (product) => {
-    const ingredientsElem = document.getElementById("ingredients");
     const ingredients = product.getIngredients();
+
     ingredientsElem.innerHTML = "";
-    console.log(ingredients);
 
     for (let ingredient of ingredients) {
       const newElem = document.createElement("div");
-      newElem.innerHTML = template(ingredient);
 
-      ingredientsElem.appendChild(newElem);
+      newElem.innerHTML = eval("`" + template + "`");
+      ingredientsElem.appendChild(newElem.children[0]);
     }
   };
 
-  return { displayIngredients };
+  const init = () => {
+    showBtn = document.getElementById("ingredient-show-btn");
+    ingredientsElem = document.getElementById("ingredients");
+    showBtn.addEventListener("click", () => showBtnOnClick());
+  };
+
+  const showBtnOnClick = () => {
+    console.log(ingredientsElem.classList);
+
+    ingredientsElem.classList.toggle("display-none");
+    ingredientsElem.classList.toggle("display-grid");
+  };
+
+  return { displayIngredients, init };
 };
 
 export { IngredientsComponent };

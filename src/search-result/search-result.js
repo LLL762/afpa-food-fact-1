@@ -13,6 +13,7 @@ const SearchResultComponent = (ingredientsComponent) => {
   const init = () => {
     mainElem.innerHTML = template;
     observerHelper.obsUpdate = (eventName, any, newValue) => refresh(newValue);
+    ingredientsComponent.init();
   };
 
   const show = () => {
