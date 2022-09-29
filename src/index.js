@@ -21,7 +21,7 @@ const foodServiceMock = FoodServiceMock(
 );
 const searchInputValidator = SearchInputValidator();
 
-const searchBar = SearchComponent(foodServiceMock, searchInputValidator);
+const searchBar = SearchComponent(foodService, searchInputValidator);
 const searchResult = SearchResultComponent(IngredientsComponent());
 
 searchBar.init();

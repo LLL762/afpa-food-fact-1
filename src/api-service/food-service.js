@@ -1,5 +1,4 @@
 import { ApiConfig } from "../config/api-config";
-import $ from "jquery";
 
 const FoodService = (productJsonMapper, jsonRespValidator) => {
   const getProductByCode = async (code) => {
