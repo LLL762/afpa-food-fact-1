@@ -1,4 +1,4 @@
-const Product = (
+const Product = function (
   code,
   name,
   imgUrl,
@@ -10,7 +10,7 @@ const Product = (
   brand,
   servingSize,
   packaging
-) => {
+) {
   const getCode = () => code;
   const getName = () => name;
   const getImgUrl = () => imgUrl;
