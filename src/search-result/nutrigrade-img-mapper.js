@@ -11,27 +11,27 @@ const NutrigradeImgMapper = () => {
 
     switch (nutriGrade) {
       case "A":
-        htmlImg.setAttribute("src", A);
+        htmlImg.attr("src", A);
         htmlImg.alt = "nutrigrade A";
         break;
       case "B":
-        htmlImg.setAttribute("src", B);
+        htmlImg.attr("src", B);
         htmlImg.alt = "nutrigrade B";
         break;
       case "C":
-        htmlImg.setAttribute("src", C);
+        htmlImg.attr("src", C);
         htmlImg.alt = "nutrigrade C";
         break;
       case "D":
-        htmlImg.setAttribute("src", D);
+        htmlImg.attr("src", D);
         htmlImg.alt = "nutrigrade D";
         break;
       case "E":
-        htmlImg.setAttribute("src", E);
+        htmlImg.attr("src", E);
         htmlImg.alt = "nutrigrade E";
         break;
       default:
-        htmlImg.setAttribute("src", unknown);
+        htmlImg.attr("src", unknown);
         htmlImg.alt = "nutrigrade unknown";
     }
   };

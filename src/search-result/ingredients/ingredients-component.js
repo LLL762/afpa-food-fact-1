@@ -8,26 +8,21 @@ const IngredientsComponent = () => {
   const displayIngredients = (product) => {
     const ingredients = product.getIngredients();
 
-    console.log(typeof ingredients);
-    ingredientsContent.innerHTML = "";
+    ingredientsContent.html("");
 
     if (typeof ingredients === "object") {
       for (let ingredient of ingredients) {
-        const newElem = document.createElement("div");
-
-        newElem.innerHTML = eval("`" + template + "`");
-
-        ingredientsContent.appendChild(newElem.children[0]);
+        ingredientsContent.append(eval("`" + template + "`"));
       }
     } else {
-      ingredientsContent.innerHTML = "no ingredients specified";
+      ingredientsContent.html("no ingredients specified");
     }
   };
 
   const init = () => {
-    showBtn = document.getElementById("ingredient-show-btn");
-    ingredientsElem = document.getElementById("ingredients");
-    ingredientsContent = document.querySelector("#ingredients > .row");
+    showBtn = $("ingredient-show-btn");
+    ingredientsElem = $("ingredients");
+    ingredientsContent = $("#ingredients > .row");
   };
 
   return { displayIngredients, init };

@@ -59,12 +59,12 @@ const SearchComponent = (foodService, searchInputValidator) => {
 
       if (newValueValid.length > 0) {
         event.currentTarget.value = "";
-        submitBtn.disabled = true;
+        submitBtn.prop("disabled", true);
       } else {
         event.currentTarget.value = newValue;
       }
     } else {
-      submitBtn.disabled = false;
+      submitBtn.prop("disabled", false);
     }
   };
 

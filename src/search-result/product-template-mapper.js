@@ -8,7 +8,7 @@ import { TagNames } from "../config/tags-names";
 const ProductTemplateMapper = () => {
   const showProduct = (product) => {
     const rootPath = "main #product-infos";
-    const getElemById = (id) => document.querySelector(rootPath + " " + id);
+    const getElemById = (id) => $(rootPath + " " + id);
 
     const fallBackValue = "unknown";
     const nameElem = getElemById("#product-name");
@@ -22,20 +22,22 @@ const ProductTemplateMapper = () => {
     const qteElement = getElemById("#product-qte");
     const packElement = getElemById("#product-pack");
 
-    codeElem.textContent = product.getCode();
-    nameElem.textContent = product.getName() || fallBackValue;
-    img.setAttribute("src", product.getImgUrl() || noImg);
-    nutritionImg.setAttribute("src", product.getNutritionImgUrl() || noImg);
+    codeElem.text(product.getCode() || fallBackValue);
+    nameElem.text(product.getName() || fallBackValue);
+    img.attr("src", product.getImgUrl() || noImg);
+    nutritionImg.attr("src", product.getNutritionImgUrl() || noImg);
 
     NutrigradeImgMapper().toImg(product.getNutriGrade(), nutriGradeImg);
     NovaMapper().toImg(product.getNovaGroup(), novaGoupImg);
     EcoMapper().toImg(product.getEcoScoreGrade(), ecoImg);
 
-    brandElem.textContent = product.getBrand() || fallBackValue;
-    qteElement.textContent = product.getServingSize() || fallBackValue;
-    packElement.textContent = product.getPackaging()
-      ? TagFilter().filter(product.getPackaging(), TagNames.getEnTag())
-      : fallBackValue;
+    brandElem.text(product.getBrand() || fallBackValue);
+    qteElement.text = product.getServingSize() || fallBackValue;
+    packElement.text(
+      product.getPackaging()
+        ? TagFilter().filter(product.getPackaging(), TagNames.getEnTag())
+        : fallBackValue
+    );
   };
 
   return { showProduct };

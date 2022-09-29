@@ -6,18 +6,18 @@ import { ProductTemplateMapper } from "./product-template-mapper";
 const SearchResultComponent = (ingredientsComponent) => {
   const observerHelper = ObserverHelper();
   const productTemplateMapper = ProductTemplateMapper();
-  const mainElem = document.querySelector("main");
+  const mainElem = $("main");
 
   const getObserverHelper = () => observerHelper;
 
   const init = () => {
-    mainElem.innerHTML = template;
+    mainElem.html(template);
     observerHelper.obsUpdate = (eventName, any, newValue) => refresh(newValue);
     ingredientsComponent.init();
   };
 
   const show = () => {
-    mainElem.classList.add("display-block");
+    mainElem.addClass("display-block");
   };
 
   const refresh = (product) => {

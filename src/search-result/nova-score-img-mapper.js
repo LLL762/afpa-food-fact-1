@@ -8,23 +8,23 @@ const NovaMapper = () => {
   const toImg = (nova, htmlImg) => {
     switch (nova) {
       case 1:
-        htmlImg.setAttribute("src", _1);
+        htmlImg.attr("src", _1);
         htmlImg.alt = "nova score 1";
         break;
       case 2:
-        htmlImg.setAttribute("src", _2);
+        htmlImg.attr("src", _2);
         htmlImg.alt = "nova score 2";
         break;
       case 3:
-        htmlImg.setAttribute("src", _3);
+        htmlImg.attr("src", _3);
         htmlImg.alt = "nova score 3";
         break;
       case 4:
-        htmlImg.setAttribute("src", _4);
+        htmlImg.attr("src", _4);
         htmlImg.alt = "nova score 4";
         break;
       default:
-        htmlImg.setAttribute("src", unknown);
+        htmlImg.attr("src", unknown);
         htmlImg.alt = "No nova score for this product";
     }
   };
