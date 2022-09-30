@@ -4,6 +4,7 @@ import { EventNames, ObservableHelper } from "../obs-helper/obs-helper";
 
 const SearchComponent = (foodService, searchInputValidator) => {
   const obsHelper = ObservableHelper();
+  const msgClassList = "text-info text-danger text-sucess";
   let searchInput;
   let submitBtn;
   let searchMsg;
@@ -50,34 +51,29 @@ const SearchComponent = (foodService, searchInputValidator) => {
   };
 
   const onInputSearch = (event) => {
-    const searchValue = event.currentTarget.value;
-    const validResult = searchInputValidator.validate(searchValue);
+    const newValue = searchInput.val();
+    const oldValue = searchInput.attr("oldValue") ?? "";
+    const validResult = searchInputValidator.validate(newValue);
 
-    if (validResult.length > 0) {
-      const newValue = searchValue.slice(0, -1);
-      const newValueValid = searchInputValidator.validate(newValue);
-
-      if (newValueValid.length > 0) {
-        event.currentTarget.value = "";
-        submitBtn.prop("disabled", true);
-      } else {
-        event.currentTarget.value = newValue;
-      }
+    if (validResult.length > 0 && newValue.length > 0) {
+      searchInput.val(oldValue);
     } else {
-      submitBtn.prop("disabled", false);
+      submitBtn.prop("disabled", newValue.length < 5);
+      searchInput.attr("oldValue", newValue);
+      searchInput.val(newValue.trim());
     }
   };
 
   const setMsg = (msg) => {
     switch (msg) {
       case "product found!":
-        searchMsg.removeClass("text-info text-danger").addClass("text-success");
+        searchMsg.removeClass(msgClassList).addClass("text-success");
         break;
       case "Trying to fetch resource from api please wait":
-        searchMsg.removeClass("text-success text-danger").addClass("text-info");
+        searchMsg.removeClass(msgClassList).addClass("text-info");
         break;
       default:
-        searchMsg.removeClass("text-success text-info").addClass("text-danger");
+        searchMsg.removeClass(msgClassList).addClass("text-danger");
         break;
     }
     searchMsg.text(msg);
