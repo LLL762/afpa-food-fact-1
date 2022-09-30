@@ -4,7 +4,7 @@ const SearchInputValidator = (max) => {
   const maxCharMsg = `${max} character maximum`;
 
   const validate = (input) => {
-    if (!input) {
+    if (!input || input.trim().length == 0) {
       return blankMsg;
     }
 
