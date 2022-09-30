@@ -1,5 +1,5 @@
 import template from "./search-bar.html";
-import "./search-bar.css";
+import "./search-bar.scss";
 import { EventNames, ObservableHelper } from "../obs-helper/obs-helper";
 
 const SearchComponent = (foodService, searchInputValidator) => {
@@ -71,13 +71,13 @@ const SearchComponent = (foodService, searchInputValidator) => {
   const setMsg = (msg) => {
     switch (msg) {
       case "product found!":
-        searchMsg.removeClass("info warning").addClass("ok");
+        searchMsg.removeClass("text-info text-danger").addClass("text-success");
         break;
       case "Trying to fetch resource from api please wait":
-        searchMsg.removeClass("ok warning").addClass("info");
+        searchMsg.removeClass("text-success text-danger").addClass("text-info");
         break;
       default:
-        searchMsg.removeClass("ok info").addClass("warning");
+        searchMsg.removeClass("text-success text-info").addClass("text-danger");
         break;
     }
     searchMsg.text(msg);

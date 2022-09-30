@@ -1,24 +1,6 @@
 @import "bootstrap";
 @import "./global-var.scss";
 
-:root {
-  --bg-color-primary: #e3e7f0;
-  --bg-color-secondary-lighter: #7fa6d3;
-  --bg-color-content: white;
-
-  --text-color-primary: black;
-  --text-color-primary-lighter: grey;
-  --text-color-secondary: white;
-
-  --text-color-warning: rgb(219, 80, 80);
-  --text-color-ok: rgb(96, 180, 75);
-  --text-color-info: rgb(30, 28, 138);
-
-}
-
-
-
-
 * {
   box-sizing: border-box;
 }
@@ -51,7 +33,7 @@ header {
   margin-top: 2em;
 }
 
-button,
+
 input {
   font-family: inherit;
   font-size: inherit;
@@ -64,6 +46,14 @@ input {
   @extend .btn;
   @extend .btn-primary;
   @extend .rounded;
+}
+
+.flex-line-v-h-center{
+  @extend .d-flex;
+  @extend .flex-wrap;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .gap-4
 }
 
 
