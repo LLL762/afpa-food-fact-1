@@ -51,11 +51,11 @@ const SearchComponent = (foodService, searchInputValidator) => {
 
   const onInputSearch = (event) => {
     const searchValue = event.currentTarget.value;
-    const validResult = searchInputValidator.validate(searchValue, 15);
+    const validResult = searchInputValidator.validate(searchValue);
 
     if (validResult.length > 0) {
       const newValue = searchValue.slice(0, -1);
-      const newValueValid = searchInputValidator.validate(newValue, 15);
+      const newValueValid = searchInputValidator.validate(newValue);
 
       if (newValueValid.length > 0) {
         event.currentTarget.value = "";

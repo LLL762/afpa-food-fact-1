@@ -19,7 +19,7 @@ const foodServiceMock = FoodServiceMock(
   ProductJsonMapper(ingredientJsonMapper),
   JsonRespValidator()
 );
-const searchInputValidator = SearchInputValidator();
+const searchInputValidator = SearchInputValidator(15);
 
 const searchBar = SearchComponent(foodService, searchInputValidator);
 const searchResult = SearchResultComponent(IngredientsComponent());

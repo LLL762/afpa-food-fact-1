@@ -1,20 +1,28 @@
-const SearchInputValidator = () => {
-  const validate = (input, max) => {
+const SearchInputValidator = (max) => {
+  const blankMsg = "please enter a value";
+  const isNanMsg = "character is not a number";
+  const maxCharMsg = `${max} character maximum`;
+
+  const validate = (input) => {
     if (!input) {
-      return "please enter a value";
+      return blankMsg;
     }
 
     if (isNaN(input)) {
-      return "character is not a number";
+      return isNanMsg;
     }
     if (input.length > max) {
-      return "${max} character maximum";
+      return maxCharMsg;
     }
 
     return "";
   };
 
-  return { validate };
+  const getBlankMsg = () => blankMsg;
+  const getIsNanMsg = () => isNanMsg;
+  const getMaxCharMsg = () => maxCharMsg;
+
+  return { validate, getBlankMsg, getIsNanMsg, getMaxCharMsg };
 };
 
 export { SearchInputValidator };
