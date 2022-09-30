@@ -2,13 +2,14 @@ const SearchInputValidator = (max) => {
   const blankMsg = "please enter a value";
   const isNanMsg = "character is not a number";
   const maxCharMsg = `${max} character maximum`;
+  const isNumberRegex = new RegExp("^\\d+$");
 
   const validate = (input) => {
     if (!input || input.trim().length == 0) {
       return blankMsg;
     }
 
-    if (isNaN(input)) {
+    if (!isNumberRegex.test(input)) {
       return isNanMsg;
     }
     if (input.length > max) {

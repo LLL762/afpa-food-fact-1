@@ -54,7 +54,7 @@ const SearchComponent = (foodService, searchInputValidator) => {
     const newValue = searchInput.val();
     const oldValue = searchInput.attr("oldValue") ?? "";
     const validResult = searchInputValidator.validate(newValue);
-
+    console.log(newValue);
     if (validResult.length > 0 && newValue.length > 0) {
       searchInput.val(oldValue);
     } else {
