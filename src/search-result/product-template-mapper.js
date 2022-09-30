@@ -32,7 +32,7 @@ const ProductTemplateMapper = () => {
     EcoMapper().toImg(product.getEcoScoreGrade(), ecoImg);
 
     brandElem.text(product.getBrand() || fallBackValue);
-    qteElement.text = product.getServingSize() || fallBackValue;
+    qteElement.text(product.getServingSize() || fallBackValue);
     packElement.text(
       product.getPackaging()
         ? TagFilter().filter(product.getPackaging(), TagNames.getEnTag())
