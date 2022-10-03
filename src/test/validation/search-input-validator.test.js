@@ -1,4 +1,4 @@
-import { SearchInputValidator } from "../../src/validation/search-input-validator";
+import { SearchInputValidator } from "../../validation/search-input-validator";
 import { describe, expect, test } from "@jest/globals";
 
 const testSubject = SearchInputValidator(15);
