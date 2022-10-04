@@ -3,7 +3,11 @@ import "./search-result.css";
 import { ObserverHelper } from "../obs-helper/obs-helper";
 import { ProductTemplateMapper } from "./product-template-mapper";
 
-const SearchResultComponent = (ingredientsComponent, nutrientComponent) => {
+const SearchResultComponent = (
+  ingredientsComponent,
+  nutrientComponent,
+  nutrimentComponent
+) => {
   const observerHelper = ObserverHelper();
   const productTemplateMapper = ProductTemplateMapper();
   const mainElem = $("main");
@@ -15,6 +19,7 @@ const SearchResultComponent = (ingredientsComponent, nutrientComponent) => {
     observerHelper.obsUpdate = (eventName, any, newValue) => refresh(newValue);
     ingredientsComponent.init();
     nutrientComponent.init();
+    nutrimentComponent.init();
   };
 
   const show = () => {
@@ -25,6 +30,7 @@ const SearchResultComponent = (ingredientsComponent, nutrientComponent) => {
     productTemplateMapper.showProduct(product);
     ingredientsComponent.displayIngredients(product);
     nutrientComponent.display(product);
+    nutrimentComponent.display(product);
     show();
   };
 

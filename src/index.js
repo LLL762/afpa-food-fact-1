@@ -11,11 +11,19 @@ import { SearchInputValidator } from "./validation/search-input-validator.js";
 import "bootstrap";
 import { NutrientLevelsJsonMapper } from "./model/nutrient-levels-json-mapper.js";
 import { NutrientComponent } from "./search-result/nutrient/nutrient-component.js";
+import { NutrimentsJsonMapper } from "./model/nutriment-json-mapper.js";
+import { NutrimentsComponent } from "./search-result/nutriments/nutriment-component.js";
 
 const ingredientJsonMapper = IngredientJsonMapper();
 const nutrientLevelsJsonMapper = NutrientLevelsJsonMapper();
+const nutrimentJsonMapper = NutrimentsJsonMapper();
+
 const foodService = FoodService(
-  ProductJsonMapper(ingredientJsonMapper, nutrientLevelsJsonMapper),
+  ProductJsonMapper(
+    ingredientJsonMapper,
+    nutrientLevelsJsonMapper,
+    nutrimentJsonMapper
+  ),
   JsonRespValidator()
 );
 const foodServiceMock = FoodServiceMock(
@@ -27,7 +35,8 @@ const searchInputValidator = SearchInputValidator(15);
 const searchBar = SearchComponent(foodService, searchInputValidator);
 const searchResult = SearchResultComponent(
   IngredientsComponent(),
-  NutrientComponent()
+  NutrientComponent(),
+  NutrimentsComponent()
 );
 
 searchBar.init();

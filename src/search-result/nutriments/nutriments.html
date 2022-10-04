@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">100g :</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#nutriments}}
+    <tr>
+      <td>{{getName}}</td>
+      <td>{{getQte100g}} {{getQteUnit}}</td>
+    </tr>
+    {{/nutriments}}
+  </tbody>
+</table>

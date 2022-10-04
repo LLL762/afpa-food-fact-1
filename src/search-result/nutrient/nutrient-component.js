@@ -1,6 +1,5 @@
 import { NutrientValues } from "../../model/nutrient-levels";
 import template from "./nutrient-levels.html";
-import "./nutrient.scss";
 const Mustache = require("mustache");
 
 const NutrientComponent = () => {
