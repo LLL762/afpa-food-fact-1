@@ -9,7 +9,8 @@ const Product = function (
   ingredients,
   brand,
   servingSize,
-  packaging
+  packaging,
+  nutrientLevels
 ) {
   const getCode = () => code;
   const getName = () => name;
@@ -22,6 +23,7 @@ const Product = function (
   const getBrand = () => brand;
   const getServingSize = () => servingSize;
   const getPackaging = () => packaging;
+  const getNutrientLevels = () => nutrientLevels;
 
   return {
     getCode,
@@ -35,6 +37,7 @@ const Product = function (
     getBrand,
     getServingSize,
     getPackaging,
+    getNutrientLevels,
   };
 };
 

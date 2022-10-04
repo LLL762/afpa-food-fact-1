@@ -1,4 +1,5 @@
 import template from "./ingredient.html";
+const Mustache = require("mustache");
 
 const IngredientsComponent = () => {
   let showBtn;
@@ -12,7 +13,11 @@ const IngredientsComponent = () => {
 
     if (typeof ingredients === "object") {
       for (let ingredient of ingredients) {
-        ingredientsContent.append(eval("`" + template + "`"));
+        const rendered = Mustache.render(template, {
+          ingredient,
+        });
+
+        ingredientsContent.append(rendered);
       }
     } else {
       ingredientsContent.html("no ingredients specified");

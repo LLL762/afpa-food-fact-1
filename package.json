@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.1",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "mustache": "^4.2.0",
+    "mustache-loader": "^1.4.3"
   }
 }
