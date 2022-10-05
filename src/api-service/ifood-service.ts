@@ -1,0 +1,7 @@
+interface IFoodService{
+
+    getProductByCode: string;
+
+
+
+}

@@ -8,9 +8,8 @@ const NutrientComponent = () => {
   const display = (product) => {
     nutrientElem.html("");
 
-    const nutrientLevels = product.getNutrientLevels();
+    const nutrientLevels = product.nutrientLevels;
 
-    console.log(nutrientLevels.getSugarsLevel());
     const view = NutrientLevelsView(nutrientLevels);
     const rendered = Mustache.render(template, {
       view,
@@ -20,21 +19,21 @@ const NutrientComponent = () => {
   };
 
   const NutrientLevelsView = (nutrientLevels) => {
-    const fat = mapToIcon(nutrientLevels.getFatLevel());
-    const salt = mapToIcon(nutrientLevels.getSaltLevel());
-    const saturatedFat = mapToIcon(nutrientLevels.getSaturatedFatLevel());
-    const sugars = mapToIcon(nutrientLevels.getSugarsLevel());
+    const fat = mapToIcon(nutrientLevels.fatLevel);
+    const salt = mapToIcon(nutrientLevels.saltLevel);
+    const saturatedFat = mapToIcon(nutrientLevels.saturatedFatLevel);
+    const sugars = mapToIcon(nutrientLevels.sugarsLevel);
 
     return { fat, saturatedFat, sugars, salt };
   };
 
   const mapToIcon = (level) => {
     switch (level?.trim().toLowerCase()) {
-      case NutrientValues.getLow():
+      case NutrientValues.LOW:
         return "🟢";
-      case NutrientValues.getAverage():
+      case NutrientValues.AVERAGE:
         return "🟡";
-      case NutrientValues.getHigh():
+      case NutrientValues.HIGH:
         return "🔴";
       default:
         return "?";

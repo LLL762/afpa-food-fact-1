@@ -5,15 +5,14 @@ const NutrimentsComponent = () => {
   let nutrimentsElem;
 
   const display = (product) => {
-    const nutriments = product
-      .getNutriments()
-      .filter((n) => n.getQte100g() > 0)
-      .sort((n1, n2) => n2.getQte100g() - n1.getQte100g());
+    const nutriments = product.nutriments
+      .filter((n) => n.qte100g > 0)
+      .sort((n1, n2) => n2.qte100g - n1.qte100g);
     nutrimentsElem.html("");
 
     if (nutriments && nutriments.length > 0) {
       const rendered = Mustache.render(template, {
-        productQte: product.getServingSize(),
+        productQte: product.servingSize,
         nutriments: nutriments,
       });
       nutrimentsElem.append(rendered);

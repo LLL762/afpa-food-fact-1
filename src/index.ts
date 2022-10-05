@@ -1,7 +1,4 @@
-import { FoodServiceMock } from "./api-service/food-service-mock.js";
 import { FoodService } from "./api-service/food-service.js";
-import { IngredientJsonMapper } from "./model/ingredient-json-mapper.js";
-import { ProductJsonMapper } from "./model/product-json-mapper.js";
 import { SearchComponent } from "./search-bar/search-bar.js";
 import { IngredientsComponent } from "./search-result/ingredients/ingredients-component.js";
 import { SearchResultComponent } from "./search-result/search-result.js";
@@ -9,27 +6,26 @@ import "./style.scss";
 import { JsonRespValidator } from "./validation/json-resp-validator.js";
 import { SearchInputValidator } from "./validation/search-input-validator.js";
 import "bootstrap";
-import { NutrientLevelsJsonMapper } from "./model/nutrient-levels-json-mapper.js";
 import { NutrientComponent } from "./search-result/nutrient/nutrient-component.js";
-import { NutrimentsJsonMapper } from "./model/nutriment-json-mapper.js";
-import { NutrimentsComponent } from "./search-result/nutriments/nutriment-component.js";
+import { NutrimentsComponent } from "./search-result/nutriments/nutriment-component";
+import { IngredientJsonMapper } from "./model/ingredient-json-mapper";
+import { NutrientLevelsJsonMapper } from "./model/nutrient-levels-json-mapper";
+import { NutrimentsJsonMapper } from "./model/nutriment-json-mapper";
+import { ProductJsonMapper } from "./model/product-json-mapper";
 
-const ingredientJsonMapper = IngredientJsonMapper();
-const nutrientLevelsJsonMapper = NutrientLevelsJsonMapper();
-const nutrimentJsonMapper = NutrimentsJsonMapper();
+const ingredientJsonMapper = new IngredientJsonMapper();
+const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
+const nutrimentJsonMapper = new NutrimentsJsonMapper();
 
 const foodService = FoodService(
-  ProductJsonMapper(
+  new ProductJsonMapper(
     ingredientJsonMapper,
     nutrientLevelsJsonMapper,
     nutrimentJsonMapper
   ),
   JsonRespValidator()
 );
-const foodServiceMock = FoodServiceMock(
-  ProductJsonMapper(ingredientJsonMapper),
-  JsonRespValidator()
-);
+
 const searchInputValidator = SearchInputValidator(15);
 
 const searchBar = SearchComponent(foodService, searchInputValidator);

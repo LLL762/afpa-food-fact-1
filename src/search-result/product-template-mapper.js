@@ -22,20 +22,20 @@ const ProductTemplateMapper = () => {
     const qteElement = getElemById("#product-qte");
     const packElement = getElemById("#product-pack");
 
-    codeElem.text(product.getCode() || fallBackValue);
-    nameElem.text(product.getName() || fallBackValue);
-    img.attr("src", product.getImgUrl() || noImg);
-    nutritionImg.attr("src", product.getNutritionImgUrl() || noImg);
+    codeElem.text(product.code || fallBackValue);
+    nameElem.text(product.name || fallBackValue);
+    img.attr("src", product.imgUrl || noImg);
+    nutritionImg.attr("src", product.nutritionImgUrl || noImg);
 
-    NutrigradeImgMapper().toImg(product.getNutriGrade(), nutriGradeImg);
-    NovaMapper().toImg(product.getNovaGroup(), novaGoupImg);
-    EcoMapper().toImg(product.getEcoScoreGrade(), ecoImg);
+    NutrigradeImgMapper().toImg(product.nutrigrade, nutriGradeImg);
+    NovaMapper().toImg(product.novaGroup, novaGoupImg);
+    EcoMapper().toImg(product.ecoScoreGrade, ecoImg);
 
-    brandElem.text(product.getBrand() || fallBackValue);
-    qteElement.text(product.getServingSize() || fallBackValue);
+    brandElem.text(product.brand || fallBackValue);
+    qteElement.text(product.servingSize || fallBackValue);
     packElement.text(
-      product.getPackaging()
-        ? TagFilter().filter(product.getPackaging(), TagNames.getEnTag())
+      product.packaging
+        ? TagFilter().filter(product.packaging, TagNames.getEnTag())
         : fallBackValue
     );
   };
