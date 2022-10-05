@@ -1,15 +1,19 @@
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col"></th>
       <th scope="col">100g :</th>
+      {{#productQte}}
+      <th scope="col">{{productQte}}</th>
+      {{/productQte}}
     </tr>
   </thead>
   <tbody>
     {{#nutriments}}
     <tr>
       <td>{{getName}}</td>
-      <td>{{getQte100g}} {{getQteUnit}}</td>
+      <td>{{getQte100g}}</td>
+      <td>{{getQteServed}}</td>
     </tr>
     {{/nutriments}}
   </tbody>

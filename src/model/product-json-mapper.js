@@ -6,8 +6,6 @@ const ProductJsonMapper = (
   nutrimentsMapper
 ) => {
   const toProduct = (json) => {
-    console.log(nutrimentsMapper.toNutrimentsList(json?.product?.nutriments));
-
     return Product(
       json.code,
       json.product?.product_name,

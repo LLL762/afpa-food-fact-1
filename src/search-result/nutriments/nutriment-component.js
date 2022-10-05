@@ -12,7 +12,10 @@ const NutrimentsComponent = () => {
     nutrimentsElem.html("");
 
     if (nutriments && nutriments.length > 0) {
-      const rendered = Mustache.render(template, { nutriments });
+      const rendered = Mustache.render(template, {
+        productQte: product.getServingSize(),
+        nutriments: nutriments,
+      });
       nutrimentsElem.append(rendered);
     } else {
       nutrimentsElem.html("No nutriments info available");
