@@ -1,10 +1,10 @@
 import { SearchInputValidator } from "../../validation/search-input-validator";
-import { describe, expect, test } from "@jest/globals";
+import { expect, test } from "@jest/globals";
 
-const testSubject = SearchInputValidator(15);
+const testSubject = new SearchInputValidator();
 
 test("given valid string, validate should return empty string", () => {
-  expect(testSubject.validate("48656489774")).toBe("");
+  expect(testSubject.validate("48656489774", 15)).toBe("");
 });
 
 test("given tabb space string, validate should return blank message", () => {

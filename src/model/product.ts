@@ -8,7 +8,7 @@ export class Product {
   private readonly _imgUrl: string | undefined;
   private readonly _nutritionImgUrl: string | undefined;
   private readonly _nutriGrade: string | undefined;
-  private readonly _novaGroup: string | undefined;
+  private readonly _novaGroup: number | undefined;
   private readonly _ecoScoreGrade: string | undefined;
   private readonly _ingredients: Ingredient[];
   private readonly _brand: string | undefined;
@@ -23,7 +23,7 @@ export class Product {
     _imgUrl: string,
     _nutritionImgUrl: string,
     _nutriGrade: string,
-    _novaGroup: string,
+    _novaGroup: number,
     _ecoScoreGrade: string,
     _ingredients: Ingredient[],
     _brand: string,
@@ -53,7 +53,7 @@ export class Product {
   public get nutriGrade(): string | undefined {
     return this._nutriGrade;
   }
-  public get novaGroup(): string | undefined {
+  public get novaGroup(): number | undefined {
     return this._novaGroup;
   }
   public get code(): string | undefined {

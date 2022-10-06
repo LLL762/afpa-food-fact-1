@@ -5,18 +5,18 @@ import _4 from "../assets/img/nova-group/4.svg";
 import unknown from "../assets/img/nova-group/unknown.svg";
 
 export class NovaMapper {
-  public toImg(nova: string, htmlImg: JQuery<HTMLElement>) {
+  public toImg(nova: number, htmlImg: JQuery<HTMLElement>) {
     switch (nova) {
-      case "1":
+      case 1:
         htmlImg.attr({ src: _1, alt: "nova score 1" });
         break;
-      case "2":
+      case 2:
         htmlImg.attr({ src: _2, alt: "nova score 2" });
         break;
-      case "3":
+      case 3:
         htmlImg.attr({ src: _3, alt: "nova score 3" });
         break;
-      case "4":
+      case 4:
         htmlImg.attr({ src: _4, alt: "nova score 4" });
         break;
       default:

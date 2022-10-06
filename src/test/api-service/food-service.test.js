@@ -10,7 +10,7 @@ const jsonRespValidMock = jest.createMockFromModule(
   "../../validation/json-resp-validator"
 );
 
-const subjectToTest = FoodService(productJsonMapperMock, jsonRespValidMock);
+const subjectToTest = new FoodService(productJsonMapperMock, jsonRespValidMock);
 
 beforeEach(() => {
   jest.clearAllMocks();
