@@ -1,10 +1,10 @@
 import { FoodService } from "./api-service/food-service";
-import { SearchComponent } from "./search-bar/search-bar.js";
+import { SearchComponent } from "./search-bar/search-bar";
 import { IngredientsComponent } from "./search-result/ingredients/ingredients-component";
 import { SearchResultComponent } from "./search-result/search-result";
 import "./style.scss";
 import { JsonRespValidator } from "./validation/json-resp-validator";
-import { SearchInputValidator } from "./validation/search-input-validator.js";
+import { SearchInputValidator } from "./validation/search-input-validator";
 import "bootstrap";
 import { NutrientComponent } from "./search-result/nutrient/nutrient-component";
 import { NutrimentsComponent } from "./search-result/nutriments/nutriment-component";
@@ -31,9 +31,9 @@ const foodService = new FoodService(
   new JsonRespValidator()
 );
 
-const searchInputValidator = SearchInputValidator(15);
+const searchInputValidator = new SearchInputValidator();
 
-const searchBar = SearchComponent(foodService, searchInputValidator);
+const searchBar = new SearchComponent(foodService, searchInputValidator);
 const searchResult = new SearchResultComponent();
 
 const productTemplateMapper = new ProductTemplateMapper(
