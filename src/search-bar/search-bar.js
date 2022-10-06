@@ -3,7 +3,7 @@ import "./search-bar.scss";
 import { EventNames, ObservableHelper } from "../obs-helper/obs-helper";
 
 const SearchComponent = (foodService, searchInputValidator) => {
-  const obsHelper = ObservableHelper();
+  const obsHelper = new ObservableHelper();
   const msgClassList = "text-info text-danger text-sucess";
   let searchInput;
   let submitBtn;
@@ -42,7 +42,7 @@ const SearchComponent = (foodService, searchInputValidator) => {
   };
 
   const notifyObservers = (product) => {
-    obsHelper.notifyObservers(EventNames.getNewValidSearchResult(), 0, product);
+    obsHelper.notifyObservers(EventNames.VALID_SEARCH_RESULT, 0, product);
     setMsg("product found!");
   };
 
