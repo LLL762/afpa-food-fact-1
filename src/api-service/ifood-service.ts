@@ -1,7 +1,5 @@
-interface IFoodService{
+import { Product } from "../model/product";
 
-    getProductByCode: string;
-
-
-
+export interface IFoodService {
+  getProductByCode(code: string): Promise<Product | string>;
 }

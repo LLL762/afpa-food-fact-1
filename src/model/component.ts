@@ -1,4 +1,6 @@
-interface Component {
-  init: void;
-  display: void;
+import { Product } from "./product";
+
+export interface ProductComponent {
+  init(): void;
+  display(product: Product): void;
 }

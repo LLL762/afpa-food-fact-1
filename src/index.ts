@@ -1,9 +1,9 @@
-import { FoodService } from "./api-service/food-service.js";
+import { FoodService } from "./api-service/food-service";
 import { SearchComponent } from "./search-bar/search-bar.js";
-import { IngredientsComponent } from "./search-result/ingredients/ingredients-component.js";
+import { IngredientsComponent } from "./search-result/ingredients/ingredients-component";
 import { SearchResultComponent } from "./search-result/search-result.js";
 import "./style.scss";
-import { JsonRespValidator } from "./validation/json-resp-validator.js";
+import { JsonRespValidator } from "./validation/json-resp-validator";
 import { SearchInputValidator } from "./validation/search-input-validator.js";
 import "bootstrap";
 import { NutrientComponent } from "./search-result/nutrient/nutrient-component.js";
@@ -17,22 +17,22 @@ const ingredientJsonMapper = new IngredientJsonMapper();
 const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
 const nutrimentJsonMapper = new NutrimentsJsonMapper();
 
-const foodService = FoodService(
+const foodService = new FoodService(
   new ProductJsonMapper(
     ingredientJsonMapper,
     nutrientLevelsJsonMapper,
     nutrimentJsonMapper
   ),
-  JsonRespValidator()
+  new JsonRespValidator()
 );
 
 const searchInputValidator = SearchInputValidator(15);
 
 const searchBar = SearchComponent(foodService, searchInputValidator);
 const searchResult = SearchResultComponent(
-  IngredientsComponent(),
+  new IngredientsComponent(),
   NutrientComponent(),
-  NutrimentsComponent()
+  new NutrimentsComponent()
 );
 
 searchBar.init();

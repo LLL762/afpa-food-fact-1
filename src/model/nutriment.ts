@@ -1,14 +1,14 @@
 export class Nutriment {
   private readonly _name: string | undefined;
-  private readonly _qte100g: string | undefined;
-  private readonly _qteServed: string | undefined;
+  private readonly _qte100g: number | undefined;
+  private readonly _qteServed: number | undefined;
   private readonly _qteUnit: string | undefined;
   private readonly _value: string | undefined;
 
   constructor(
     _name: string | undefined,
-    _qte100g: string | undefined,
-    _qteServed: string | undefined,
+    _qte100g: number | undefined,
+    _qteServed: number | undefined,
     _qteUnit: string | undefined,
     _value: string | undefined
   ) {
@@ -22,10 +22,10 @@ export class Nutriment {
   public get name(): string | undefined {
     return this._name;
   }
-  public get qte100g(): string | undefined {
+  public get qte100g(): number | undefined {
     return this._qte100g;
   }
-  public get qteServed(): string | undefined {
+  public get qteServed(): number | undefined {
     return this._qteServed;
   }
   public get qteUnit(): string | undefined {

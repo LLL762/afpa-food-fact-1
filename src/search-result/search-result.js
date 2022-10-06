@@ -28,7 +28,7 @@ const SearchResultComponent = (
 
   const refresh = (product) => {
     productTemplateMapper.showProduct(product);
-    ingredientsComponent.displayIngredients(product);
+    ingredientsComponent.display(product);
     nutrientComponent.display(product);
     nutrimentComponent.display(product);
     show();
