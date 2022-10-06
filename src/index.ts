@@ -6,7 +6,7 @@ import "./style.scss";
 import { JsonRespValidator } from "./validation/json-resp-validator";
 import { SearchInputValidator } from "./validation/search-input-validator.js";
 import "bootstrap";
-import { NutrientComponent } from "./search-result/nutrient/nutrient-component.js";
+import { NutrientComponent } from "./search-result/nutrient/nutrient-component";
 import { NutrimentsComponent } from "./search-result/nutriments/nutriment-component";
 import { IngredientJsonMapper } from "./model/ingredient-json-mapper";
 import { NutrientLevelsJsonMapper } from "./model/nutrient-levels-json-mapper";
@@ -31,7 +31,7 @@ const searchInputValidator = SearchInputValidator(15);
 const searchBar = SearchComponent(foodService, searchInputValidator);
 const searchResult = SearchResultComponent(
   new IngredientsComponent(),
-  NutrientComponent(),
+  new NutrientComponent(),
   new NutrimentsComponent()
 );
 
