@@ -13,7 +13,7 @@ export class Product {
   private readonly _ingredients: Ingredient[];
   private readonly _brand: string | undefined;
   private readonly _servingSize: string | undefined;
-  private readonly _packaging: string | undefined;
+  private readonly _packaging: string[] | undefined;
   private readonly _nutrientLevels: NutrientLevels | undefined;
   private readonly _nutriments: Nutriment[];
 
@@ -28,7 +28,7 @@ export class Product {
     _ingredients: Ingredient[],
     _brand: string,
     _servingSize: string,
-    _packaging: string,
+    _packaging: string[],
     _nutrientLevels: NutrientLevels,
     _nutriments: Nutriment[]
   ) {
@@ -65,7 +65,7 @@ export class Product {
   public get nutrientLevels(): NutrientLevels | undefined {
     return this._nutrientLevels;
   }
-  public get packaging(): string | undefined {
+  public get packaging(): string[] | undefined {
     return this._packaging;
   }
   public get servingSize(): string | undefined {

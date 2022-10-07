@@ -17,6 +17,8 @@ import { NutrigradeImgMapper } from "./search-result/nutrigrade-img-mapper";
 import { NovaMapper } from "./search-result/nova-score-img-mapper";
 import { EcoMapper } from "./search-result/eco-grade-img-mapper";
 import { ProductInfosComponent } from "./search-result/core-infos/product-info-component";
+import { LangTagFilter } from "./search-result/tag-filter";
+import { FoodServiceMock } from "./api-service/food-service-mock";
 
 const ingredientJsonMapper = new IngredientJsonMapper();
 const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
@@ -33,7 +35,16 @@ const foodService = new FoodService(
 
 const searchInputValidator = new SearchInputValidator();
 
-const searchBar = new SearchComponent(foodService, searchInputValidator);
+const searchBar = new SearchComponent(
+  FoodServiceMock(
+    new ProductJsonMapper(
+      ingredientJsonMapper,
+      nutrientLevelsJsonMapper,
+      nutrimentJsonMapper
+    )
+  ),
+  searchInputValidator
+);
 const searchResult = new SearchResultComponent();
 
 const productTemplateMapper = new ProductTemplateMapper(
@@ -47,7 +58,7 @@ searchResult.addSubComponent([
   new IngredientsComponent(),
   new NutrientComponent(),
   new NutrimentsComponent(),
-  new ProductInfosComponent(),
+  new ProductInfosComponent(new LangTagFilter()),
 ]);
 
 searchBar.init();

@@ -1,6 +1,6 @@
-{{#img}}
-<img src="{{img}}" alt="image of the product" id="product-img" />
-{{/img}} {{#product}}
+{{#productView}}
+<img src="{{imgUrl}}" alt="image of the product" id="product-img" />
+
 <div>
   <div>
     <p>Name : {{name}}</p>
@@ -12,10 +12,10 @@
     <p>Brand : {{brand}}</p>
   </div>
   <div>
-    <p>Quantity : {{servingSize}}</p>
+    <p>Quantity : {{qte}}</p>
   </div>
   <div>
-    <p>Packaging : {{packaging}}</p>
+    <p>Packaging : {{pack}}</p>
   </div>
 </div>
-{{/product}}
+{{/productView}}

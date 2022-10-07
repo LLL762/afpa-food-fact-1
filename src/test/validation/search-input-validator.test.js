@@ -4,10 +4,11 @@ import { expect, test } from "@jest/globals";
 const testSubject = new SearchInputValidator();
 
 test("given valid string, validate should return empty string", () => {
-  expect(testSubject.validate("48656489774", 15)).toBe("");
+  expect(testSubject.validate("48656489774", 15).size).toBe(0);
 });
 
 test("given tabb space string, validate should return blank message", () => {
+  const expectedResult = new Map({});
   expect(testSubject.validate("\t\t\t")).toBe(testSubject.getBlankMsg());
 });
 
