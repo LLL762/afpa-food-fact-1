@@ -30,7 +30,7 @@ test("should return validation msg when validation failed", async () => {
 });
 
 test("should return product when validation succeeded", async () => {
-  const expectedResult = Product("Arnold");
+  const expectedResult = new Product("Arnold");
 
   jsonRespValidMock.validate = jest.fn((json) => "");
   productJsonMapperMock.toProduct = jest.fn((json) => expectedResult);
