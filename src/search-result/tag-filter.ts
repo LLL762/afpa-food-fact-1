@@ -6,7 +6,7 @@ export class LangTagFilter {
       packaging
         .filter((p) => p.startsWith(tagName))
         .map((p) => p.slice(tagName.length))
-        .join(", ") || "Not supported in" + tagName
+        .join(", ") || "Not supported in " + tagName
     );
   }
 }
