@@ -5,6 +5,7 @@ export class Ingredient {
   private readonly _percentMin: string | undefined;
   private readonly _vegan: string | undefined;
   private readonly _vegeterian: string | undefined;
+  private readonly _palmOil: string | undefined;
 
   constructor(
     _name: string | undefined,
@@ -12,7 +13,8 @@ export class Ingredient {
     _percentMax: string | undefined,
     _percentMin: string | undefined,
     _vegan: string | undefined,
-    _vegeterian: string | undefined
+    _vegeterian: string | undefined,
+    _palmOil: string | undefined
   ) {
     this._name = _name;
     this._percentEstimate = _percentEstimate;
@@ -20,6 +22,7 @@ export class Ingredient {
     this._percentMin = _percentMin;
     this._vegan = _vegan;
     this._vegeterian = _vegeterian;
+    this._palmOil = _palmOil;
   }
 
   public get percentMax(): string | undefined {
@@ -40,4 +43,13 @@ export class Ingredient {
   public get vegeterian(): string | undefined {
     return this._vegeterian;
   }
+
+  public get palmOil(): string | undefined {
+    return this._palmOil;
+  }
+}
+
+export enum IngredientConfig {
+  VEGIE_MSG_TRUE = "yes",
+  VEGIE_MSG_FALSE = "no",
 }

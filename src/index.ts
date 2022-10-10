@@ -3,6 +3,7 @@ import { SearchComponent } from "./search-bar/search-bar";
 import { IngredientsComponent } from "./search-result/ingredients/ingredients-component";
 import { SearchResultComponent } from "./search-result/search-result";
 import "./style.scss";
+import "./index.html";
 import { JsonRespValidator } from "./validation/json-resp-validator";
 import { SearchInputValidator } from "./validation/search-input-validator";
 import "bootstrap";

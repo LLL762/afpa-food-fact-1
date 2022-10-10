@@ -6,9 +6,3 @@ img {
   max-height: 10em;
   height: 10em;
 }
-
-#product-infos > div:first-child {
-  background-image: url("../assets/img/background/jimmy-dean-Yn0l7uwBrpw-unsplash.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}

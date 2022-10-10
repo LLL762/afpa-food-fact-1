@@ -8,7 +8,8 @@ export class IngredientJsonMapper {
       jsonIngredient?.percent_max?.toFixed(2),
       jsonIngredient?.percent_min?.toFixed(2),
       jsonIngredient?.vegan,
-      jsonIngredient?.vegeterian
+      jsonIngredient?.vegetarian,
+      jsonIngredient?.from_palm_oil
     );
   }
 
