@@ -48,9 +48,9 @@ class IngredientView {
     this._percentEstimate = ingredient.percentEstimate ?? "??";
     this._percentMax = ingredient.percentMax ?? "??";
     this._percentMin = ingredient.percentMin ?? "??";
-    this._veganColorHex = this.setColor(ingredient.vegan);
-    this._vegeterianColorHex = this.setColor(ingredient.vegeterian);
-    this._palmOil = this.setColor(ingredient.palmOil);
+    this._veganColorHex = this.setColorVegie(ingredient.vegan);
+    this._vegeterianColorHex = this.setColorVegie(ingredient.vegeterian);
+    this._palmOil = this.setColorPalmOil(ingredient.palmOil);
   }
 
   public get percentMax(): string | undefined {
@@ -76,7 +76,7 @@ class IngredientView {
     return this._palmOil;
   }
 
-  private setColor(vegie: string | undefined): string {
+  private setColorVegie(vegie: string | undefined): string {
     if (!vegie) {
       return "grey";
     }
@@ -86,6 +86,21 @@ class IngredientView {
         return "red";
       case IngredientConfig.VEGIE_MSG_TRUE:
         return "green";
+      default:
+        return "grey";
+    }
+  }
+
+  private setColorPalmOil(palmOil: string | undefined): string {
+    if (!palmOil) {
+      return "grey";
+    }
+
+    switch (palmOil) {
+      case IngredientConfig.VEGIE_MSG_FALSE:
+        return "green";
+      case IngredientConfig.VEGIE_MSG_TRUE:
+        return "red";
       default:
         return "grey";
     }
