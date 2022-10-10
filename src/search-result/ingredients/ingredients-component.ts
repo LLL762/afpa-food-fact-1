@@ -6,7 +6,7 @@ import template from "./ingredient.html";
 const Mustache = require("mustache");
 
 export class IngredientsComponent implements ProductComponent {
-  private ingredientsContent: JQuery<HTMLElement>;
+  private ingredientsContent!: JQuery<HTMLElement>;
 
   public display(product: Product): void {
     const ingredients: Ingredient[] = product.ingredients;

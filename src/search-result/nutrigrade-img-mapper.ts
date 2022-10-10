@@ -6,7 +6,7 @@ import E from "../assets/img/nutriscore/E.svg";
 import unknown from "../assets/img/nutriscore/unknown.svg";
 
 export class NutrigradeImgMapper {
-  public toImg(_nutriGrade: string, htmlImg: JQuery<HTMLElement>) {
+  public toImg(_nutriGrade: string | undefined, htmlImg: JQuery<HTMLElement>) {
     const nutriGrade = _nutriGrade?.trim().toUpperCase();
 
     switch (nutriGrade) {

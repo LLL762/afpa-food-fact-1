@@ -5,13 +5,16 @@ import template from "./nutrient-levels.html";
 const Mustache = require("mustache");
 
 export class NutrientComponent implements ProductComponent {
-  private nutrientElem: JQuery<HTMLElement>;
+  private nutrientElem!: JQuery<HTMLElement>;
 
   public display(product: Product): void {
     this.nutrientElem.html("");
 
     const nutrientLevels = product.nutrientLevels;
 
+    if (!nutrientLevels) {
+      return;
+    }
     const view = new NutrientLevelsView(nutrientLevels);
     const rendered = Mustache.render(template, {
       view,
@@ -38,7 +41,7 @@ class NutrientLevelsView {
     this._sugars = this.mapToIcon(nutrientLevels.sugarsLevel);
   }
 
-  private mapToIcon(level: string): string {
+  private mapToIcon(level: string | undefined): string {
     switch (level?.trim().toLowerCase()) {
       case NutrientValues.LOW:
         return "🟢";

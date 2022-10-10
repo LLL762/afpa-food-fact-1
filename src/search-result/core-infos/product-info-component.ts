@@ -8,7 +8,7 @@ const Mustache = require("mustache");
 
 export class ProductInfosComponent implements ProductComponent {
   private readonly langTagFilter: LangTagFilter;
-  private productInfosElem: JQuery<HTMLElement>;
+  private productInfosElem!: JQuery<HTMLElement>;
 
   constructor(langTagFilter: LangTagFilter) {
     this.langTagFilter = langTagFilter;

@@ -1,30 +1,29 @@
-<div id="product-infos">
-  <div class="border border-light flex-line-v-h-center p-3">
-    <div
-      id="product-infos-core"
-      class="flex-line-v-h-center border border-dark rounded p-3"
-    ></div>
-    <div
-      class="d-flex justify-content-center gap-4 p-2 border border-dark rounded"
-    >
+<div id="product-infos" class="">
+  <div class="flex-line-v-h-center flex-column mb-5 p-3 rounded m-auto">
+    <div class="flex-line-v-h-center">
+      <div
+        id="product-infos-core"
+        class="flex-line-v-h-center box-default"
+      ></div>
+      <div id="nutrient-levels" class="box-default"></div>
+    </div>
+
+    <div class="d-flex justify-content-center gap-4 p-2 box-default mx-auto">
       <img src="#" alt="" id="product-nutri-grade" />
       <img src="#" alt="" id="product-nova-img" />
       <img src="#" alt="" id="product-eco-img" />
     </div>
-
-    <div id="nutrient-levels"></div>
   </div>
 
   <div class="product-info"></div>
   <div class="product-info"></div>
-  <img src="#" alt="" id="product-nutrition-img" />
 
   <div class="accordion w-75 m-auto">
     <div id="ingredients-drop-down" class="accordion-item">
       <button
         type="button"
         id="ingredient-show-btn"
-        class="accordion-button"
+        class="accordion-button bg-light"
         data-bs-toggle="collapse"
         data-bs-target="#ingredients"
       >

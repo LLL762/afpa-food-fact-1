@@ -5,7 +5,7 @@ import _4 from "../assets/img/nova-group/4.svg";
 import unknown from "../assets/img/nova-group/unknown.svg";
 
 export class NovaMapper {
-  public toImg(nova: number, htmlImg: JQuery<HTMLElement>) {
+  public toImg(nova: number | undefined, htmlImg: JQuery<HTMLElement>) {
     switch (nova) {
       case 1:
         htmlImg.attr({ src: _1, alt: "nova score 1" });

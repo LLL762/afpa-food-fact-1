@@ -18,10 +18,12 @@ import { NovaMapper } from "./search-result/nova-score-img-mapper";
 import { EcoMapper } from "./search-result/eco-grade-img-mapper";
 import { ProductInfosComponent } from "./search-result/core-infos/product-info-component";
 import { LangTagFilter } from "./search-result/tag-filter";
+import { ScrollToTopComponent } from "./scroll-to-top/scroll-to-top";
 
 const ingredientJsonMapper = new IngredientJsonMapper();
 const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
 const nutrimentJsonMapper = new NutrimentsJsonMapper();
+const scrollToTopComponent = new ScrollToTopComponent();
 
 const foodService = new FoodService(
   new ProductJsonMapper(
@@ -54,3 +56,4 @@ searchResult.addSubComponent([
 searchBar.init();
 searchBar.getObsHelper().addObserver(searchResult);
 searchResult.init();
+scrollToTopComponent.init();

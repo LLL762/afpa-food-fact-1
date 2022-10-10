@@ -11,9 +11,9 @@ export class SearchComponent {
 
   private readonly obsHelper = new ObservableHelper();
   private readonly msgClassList = "text-info text-danger text-sucess";
-  private searchInput: JQuery<HTMLElement>;
-  private submitBtn: JQuery<HTMLElement>;
-  private searchMsg: JQuery<HTMLElement>;
+  private searchInput!: JQuery<HTMLElement>;
+  private submitBtn!: JQuery<HTMLElement>;
+  private searchMsg!: JQuery<HTMLElement>;
 
   constructor(
     foodService: IFoodService,
@@ -39,7 +39,7 @@ export class SearchComponent {
     this.searchInput.on("input", (e) => this.onInputSearch(e));
   }
 
-  private getSearchValue(): string {
+  private getSearchValue(): string | undefined {
     return this.searchInput?.val()?.toString();
   }
 

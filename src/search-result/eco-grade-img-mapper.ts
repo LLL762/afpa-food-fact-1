@@ -6,7 +6,10 @@ import E from "../assets/img/eco-score/E.svg";
 import neutre from "../assets/img/eco-score/neutre.svg";
 
 export class EcoMapper {
-  public toImg(ecoGrade: string, htmlImg: JQuery<HTMLElement>): void {
+  public toImg(
+    ecoGrade: string | undefined,
+    htmlImg: JQuery<HTMLElement>
+  ): void {
     switch (ecoGrade?.trim().toUpperCase()) {
       case "A":
         htmlImg.attr({ src: A, alt: "eco grade A" });

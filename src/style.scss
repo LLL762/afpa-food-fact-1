@@ -17,8 +17,8 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  background-color: $bg-color-primary;
   width: 100%;
+  max-width: 100%;
 }
 
 main {
@@ -31,8 +31,13 @@ header {
   justify-content: center;
   align-items: center;
   margin-top: 2em;
+  width: 90%;
+  border-radius: 0.5rem;
 }
 
+p {
+  margin: 0.6em;
+}
 
 input {
   font-family: inherit;
@@ -41,22 +46,29 @@ input {
   background-color: inherit;
 }
 
-
-.btn-custom{
+.btn-custom {
   @extend .btn;
   @extend .btn-primary;
   @extend .rounded;
 }
 
-.flex-line-v-h-center{
+.flex-line-v-h-center {
   @extend .d-flex;
   @extend .flex-wrap;
   @extend .justify-content-center;
   @extend .align-items-center;
-  @extend .gap-4
+  @extend .gap-4;
 }
 
-
+.box-default {
+  @extend .border;
+  @extend .border-dark;
+  @extend .rounded;
+  @extend .p-3;
+  @extend .shadow;
+  @extend .bg-light;
+  @extend .text-dark;
+}
 
 input:focus,
 button:focus {
