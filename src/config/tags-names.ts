@@ -12,17 +12,36 @@ export enum IngredientAnalysisTags {
   NON_VEGETARIAN = "non-vegetarian",
 }
 
+export class ViewData {
+  color: string;
+  msg: string;
+
+  constructor(color: string, msg: string) {
+    this.color = color;
+    this.msg = msg;
+  }
+}
+
 export class IngredientAnalysisTagsColors {
   private static readonly _MAP = new Map([
-    [IngredientAnalysisTags.PALM_OIL, "red"],
-    [IngredientAnalysisTags.NO_PALM_OIL, "green"],
-    [IngredientAnalysisTags.VEGAN, "green"],
-    [IngredientAnalysisTags.NON_VEGAN, "red"],
-    [IngredientAnalysisTags.VEGETARIAN, "green"],
-    [IngredientAnalysisTags.NON_VEGETARIAN, "red"],
+    [IngredientAnalysisTags.PALM_OIL, new ViewData("red", "Contain palm-oil")],
+    [
+      IngredientAnalysisTags.NO_PALM_OIL,
+      new ViewData("green", "Palm oil free"),
+    ],
+    [IngredientAnalysisTags.VEGAN, new ViewData("green", "Vegan friendly")],
+    [
+      IngredientAnalysisTags.NON_VEGAN,
+      new ViewData("red", "Not vegan friendly"),
+    ],
+    [IngredientAnalysisTags.VEGETARIAN, new ViewData("green", "Vegetarian")],
+    [
+      IngredientAnalysisTags.NON_VEGETARIAN,
+      new ViewData("red", "Not vegetarian"),
+    ],
   ]);
 
-  public static get MAP(): Map<string, string> {
+  public static get MAP(): Map<string, ViewData> {
     return new Map(
       JSON.parse(JSON.stringify(Array.from(IngredientAnalysisTagsColors._MAP)))
     );

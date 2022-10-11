@@ -5,6 +5,7 @@ import { Product } from "../../model/product";
 import {
   IngredientAnalysisTagsColors,
   TagsInfos,
+  ViewData,
 } from "../../config/tags-names";
 import { IngredientsAnalysis } from "../../model/ingrediens-analysis/ingredient-analysis";
 const Mustache = require("mustache");
@@ -28,9 +29,9 @@ export class IngredientsAnalysisComponent implements ProductComponent {
 }
 
 class IngredientsAnalysisView {
-  private readonly _palmOil: string;
-  private readonly _vegan: string;
-  private readonly _vegetarian: string;
+  private readonly _palmOil: ViewData;
+  private readonly _vegan: ViewData;
+  private readonly _vegetarian: ViewData;
 
   constructor(ingredientsAnalysis: IngredientsAnalysis) {
     this._palmOil = this.setColor(ingredientsAnalysis?.palmOilFree);
@@ -38,24 +39,24 @@ class IngredientsAnalysisView {
     this._vegetarian = this.setColor(ingredientsAnalysis?.vegetarian);
   }
 
-  private setColor(field: string | undefined): string {
+  private setColor(field: string | undefined): ViewData {
     return field
       ? IngredientAnalysisTagsColors.MAP.get(this.removeLangTag(field)) ??
-          "grey"
-      : "grey";
+          new ViewData("grey", this.removeLangTag(field))
+      : new ViewData("grey", "unknown");
   }
 
   private removeLangTag(analysis: string) {
     return analysis.trim().substring(TagsInfos.LANG_TAG_LENGTH).toLowerCase();
   }
 
-  public get palmOil(): string {
+  public get palmOil(): ViewData {
     return this._palmOil;
   }
-  public get vegan(): string {
+  public get vegan(): ViewData {
     return this._vegan;
   }
-  public get vegetarian(): string {
+  public get vegetarian(): ViewData {
     return this._vegetarian;
   }
 }
