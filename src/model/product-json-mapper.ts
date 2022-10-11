@@ -2,20 +2,24 @@ import { IngredientJsonMapper } from "./ingredient-json-mapper";
 import { NutrientLevelsJsonMapper } from "./nutrient-levels-json-mapper";
 import { NutrimentsJsonMapper } from "./nutriment-json-mapper";
 import { Product } from "./product";
+import { ProductDetailsJsonMapper } from "./product-details-json-mapper";
 
 export class ProductJsonMapper {
   private readonly ingredientJsonMapper: IngredientJsonMapper;
   private readonly nutrientLevelsJsonMapper: NutrientLevelsJsonMapper;
   private readonly nutrimentsMapper: NutrimentsJsonMapper;
+  private readonly productDetailMapper: ProductDetailsJsonMapper;
 
   constructor(
     ingredientJsonMapper: IngredientJsonMapper,
     nutrientLevelsJsonMapper: NutrientLevelsJsonMapper,
-    nutrimentsMapper: NutrimentsJsonMapper
+    nutrimentsMapper: NutrimentsJsonMapper,
+    productDetailMapper: ProductDetailsJsonMapper
   ) {
     this.ingredientJsonMapper = ingredientJsonMapper;
     this.nutrientLevelsJsonMapper = nutrientLevelsJsonMapper;
     this.nutrimentsMapper = nutrimentsMapper;
+    this.productDetailMapper = productDetailMapper;
   }
 
   public toProduct(json: any): Product {
@@ -34,7 +38,8 @@ export class ProductJsonMapper {
       this.nutrientLevelsJsonMapper.toNutrientLevels(
         json.product?.nutrient_levels
       ),
-      this.nutrimentsMapper.toNutrimentsList(json?.product?.nutriments)
+      this.nutrimentsMapper.toNutrimentsList(json?.product?.nutriments),
+      this.productDetailMapper.toProductDetails(json)
     );
   }
 }

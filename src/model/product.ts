@@ -1,6 +1,7 @@
 import { Ingredient } from "./ingredient";
 import { NutrientLevels } from "./nutrient-levels";
 import { Nutriment } from "./nutriment";
+import { ProductDetails } from "./product-detail";
 
 export class Product {
   private readonly _code: string | undefined;
@@ -16,6 +17,7 @@ export class Product {
   private readonly _packaging: string[] | undefined;
   private readonly _nutrientLevels: NutrientLevels | undefined;
   private readonly _nutriments: Nutriment[];
+  private readonly _productDetails: ProductDetails;
 
   constructor(
     _code: string,
@@ -30,7 +32,8 @@ export class Product {
     _servingSize: string,
     _packaging: string[],
     _nutrientLevels: NutrientLevels,
-    _nutriments: Nutriment[]
+    _nutriments: Nutriment[],
+    _productDetails: ProductDetails
   ) {
     this._code = _code;
     this._name = _name;
@@ -45,6 +48,11 @@ export class Product {
     this._packaging = _packaging;
     this._nutrientLevels = _nutrientLevels;
     this._nutriments = _nutriments;
+    this._productDetails = _productDetails;
+  }
+
+  public get productDetails(): ProductDetails {
+    return this._productDetails;
   }
 
   public get nutritionImgUrl(): string | undefined {

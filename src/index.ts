@@ -20,6 +20,7 @@ import { EcoMapper } from "./search-result/eco-grade-img-mapper";
 import { ProductInfosComponent } from "./search-result/core-infos/product-info-component";
 import { LangTagFilter } from "./search-result/tag-filter";
 import { ScrollToTopComponent } from "./scroll-to-top/scroll-to-top";
+import { ProductDetailsJsonMapper } from "./model/product-details-json-mapper";
 
 const ingredientJsonMapper = new IngredientJsonMapper();
 const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
@@ -30,7 +31,8 @@ const foodService = new FoodService(
   new ProductJsonMapper(
     ingredientJsonMapper,
     nutrientLevelsJsonMapper,
-    nutrimentJsonMapper
+    nutrimentJsonMapper,
+    new ProductDetailsJsonMapper()
   ),
   new JsonRespValidator()
 );
