@@ -21,6 +21,8 @@ import { ProductInfosComponent } from "./search-result/core-infos/product-info-c
 import { LangTagFilter } from "./search-result/tag-filter";
 import { ScrollToTopComponent } from "./scroll-to-top/scroll-to-top";
 import { ProductDetailsJsonMapper } from "./model/product-details-json-mapper";
+import { IngredientsAnalysisJsonMapper } from "./model/ingrediens-analysis/ingredient-analysis-json-mapper";
+import { IngredientsAnalysisComponent } from "./search-result/ingredients-analysis/ingredients-analysis";
 
 const ingredientJsonMapper = new IngredientJsonMapper();
 const nutrientLevelsJsonMapper = new NutrientLevelsJsonMapper();
@@ -32,7 +34,7 @@ const foodService = new FoodService(
     ingredientJsonMapper,
     nutrientLevelsJsonMapper,
     nutrimentJsonMapper,
-    new ProductDetailsJsonMapper()
+    new ProductDetailsJsonMapper(new IngredientsAnalysisJsonMapper())
   ),
   new JsonRespValidator()
 );
@@ -54,6 +56,7 @@ searchResult.addSubComponent([
   new NutrientComponent(),
   new NutrimentsComponent(),
   new ProductInfosComponent(new LangTagFilter()),
+  new IngredientsAnalysisComponent(),
 ]);
 
 searchBar.init();

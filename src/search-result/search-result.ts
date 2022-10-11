@@ -22,6 +22,8 @@ export class SearchResultComponent implements Observer {
       subComponent.display(newValue);
     }
 
+    console.log(newValue.productDetails);
+
     this.mainElem.addClass("display-block");
   }
 

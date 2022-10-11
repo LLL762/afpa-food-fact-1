@@ -15,7 +15,6 @@ export class IngredientsComponent implements ProductComponent {
 
     if (ingredients && ingredients.length > 0) {
       for (let ingredient of ingredients) {
-        console.log(ingredient.vegeterian);
         const view = new IngredientView(ingredient);
 
         const rendered = Mustache.render(template, {

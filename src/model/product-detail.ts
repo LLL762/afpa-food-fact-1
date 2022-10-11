@@ -1,14 +1,16 @@
+import { IngredientsAnalysis } from "./ingrediens-analysis/ingredient-analysis";
+
 export class ProductDetails {
   private readonly _allergens: string | undefined;
   private readonly _additives: string | undefined;
   private readonly _categories: string | undefined;
-  private readonly _ingredientsAnalysis: string | undefined;
+  private readonly _ingredientsAnalysis: IngredientsAnalysis | undefined;
 
   constructor(
     _allergens: string,
     _additives: string,
     _categories: string,
-    _ingredientsAnalysis: string
+    _ingredientsAnalysis: IngredientsAnalysis
   ) {
     this._allergens = _allergens;
     this._additives = _additives;
@@ -16,7 +18,7 @@ export class ProductDetails {
     this._ingredientsAnalysis = _ingredientsAnalysis;
   }
 
-  public get ingredientsAnalysis(): string | undefined {
+  public get ingredientsAnalysis(): IngredientsAnalysis | undefined {
     return this._ingredientsAnalysis;
   }
 
